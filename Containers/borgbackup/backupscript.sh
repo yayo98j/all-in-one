@@ -151,7 +151,8 @@ if [ "$BORG_MODE" = backup ]; then
     rm -f "/nextcloud_aio_volumes/nextcloud_aio_nextcloud_data/skip.update"
 
     # Prune options
-    BORG_PRUNE_OPTS=(--stats --keep-within=7d --keep-weekly=4 --keep-monthly=6 "$BORG_BACKUP_DIRECTORY")
+    BORG_PRUNE_OPTS=($BORG_RETENTION_POLICY)
+    BORG_PRUNE_OPTS+=(--stats "$BORG_BACKUP_DIRECTORY")
 
     # Prune archives
     echo "Pruning the archives..."
