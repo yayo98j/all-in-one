@@ -228,6 +228,11 @@ class ContainerDefinitionFetcher
                 $apparmorUnconfined = $entry['apparmor_unconfined'];
             }
 
+            $nextcloudExecCommands = [];
+            if (isset($entry['nextcloud_exec_commands'])) {
+                $nextcloudExecCommands = $entry['nextcloud_exec_commands'];
+            }
+
             $containers[] = new Container(
                 $entry['container_name'],
                 $displayName,
@@ -244,6 +249,7 @@ class ContainerDefinitionFetcher
                 $capAdd,
                 $shmSize,
                 $apparmorUnconfined,
+                $nextcloudExecCommands,
                 $this->container->get(DockerActionManager::class)
             );
         }
