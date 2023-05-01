@@ -33,12 +33,14 @@
         {
           "source": "nextcloud_aio_nextcloud",
           "destination": "/var/www/html",
-          "writeable": false
+          "writeable": false,
+          "include_in_backup_and_restore": true
         },
         {
           "source": "nextcloud_aio_apache",
           "destination": "/mnt/data",
-          "writeable": true
+          "writeable": true,
+          "include_in_backup_and_restore": true
         }
       ],
       "restart": "unless-stopped"
@@ -58,12 +60,14 @@
         {
           "source": "nextcloud_aio_database",
           "destination": "/var/lib/postgresql/data",
-          "writeable": true
+          "writeable": true,
+          "include_in_backup_and_restore": true
         },
         {
           "source": "nextcloud_aio_database_dump",
           "destination": "/mnt/data",
-          "writeable": true
+          "writeable": true,
+          "include_in_backup_and_restore": true
         }
       ],
       "environment": [
@@ -104,22 +108,26 @@
         {
           "source": "nextcloud_aio_nextcloud",
           "destination": "/var/www/html",
-          "writeable": true
+          "writeable": true,
+          "include_in_backup_and_restore": true
         },
         {
           "source": "%NEXTCLOUD_DATADIR%",
           "destination": "/mnt/ncdata",
-          "writeable": true
+          "writeable": true,
+          "include_in_backup_and_restore": false
         },
         {
           "source": "%NEXTCLOUD_MOUNT%",
           "destination": "%NEXTCLOUD_MOUNT%",
-          "writeable": true
+          "writeable": true,
+          "include_in_backup_and_restore": false
         },
         {
           "source": "%NEXTCLOUD_TRUSTED_CACERTS_DIR%",
           "destination": "/usr/local/share/ca-certificates",
-          "writeable": false
+          "writeable": false,
+          "include_in_backup_and_restore": false
         }
       ],
       "environment": [
@@ -185,7 +193,8 @@
         {
           "source": "nextcloud_aio_redis",
           "destination": "/data",
-          "writeable": true
+          "writeable": true,
+          "include_in_backup_and_restore": false
         }
       ],
       "secrets": [
@@ -214,7 +223,8 @@
         {
           "source": "nextcloud_aio_collabora_fonts",
           "destination": "/opt/cool/systemplate/tmpfonts",
-          "writeable": true
+          "writeable": true,
+          "include_in_backup_and_restore": false
         }
       ],
       "restart": "unless-stopped"
@@ -268,52 +278,32 @@
         {
           "source": "nextcloud_aio_backup_cache",
           "destination": "/root",
-          "writeable": true
-        },
-        {
-          "source": "nextcloud_aio_nextcloud",
-          "destination": "/nextcloud_aio_volumes/nextcloud_aio_nextcloud",
-          "writeable": true
+          "writeable": true,
+          "include_in_backup_and_restore": false
         },
         {
           "source": "%NEXTCLOUD_DATADIR%",
           "destination": "/nextcloud_aio_volumes/nextcloud_aio_nextcloud_data",
-          "writeable": true
-        },
-        {
-          "source": "nextcloud_aio_database",
-          "destination": "/nextcloud_aio_volumes/nextcloud_aio_database",
-          "writeable": true
-        },
-        {
-          "source": "nextcloud_aio_database_dump",
-          "destination": "/nextcloud_aio_volumes/nextcloud_aio_database_dump",
-          "writeable": true
-        },
-        {
-          "source": "nextcloud_aio_apache",
-          "destination": "/nextcloud_aio_volumes/nextcloud_aio_apache",
-          "writeable": true
+          "writeable": true,
+          "include_in_backup_and_restore": false
         },
         {
           "source": "nextcloud_aio_mastercontainer",
           "destination": "/nextcloud_aio_volumes/nextcloud_aio_mastercontainer",
-          "writeable": true
+          "writeable": true,
+          "include_in_backup_and_restore": false
         },
         {
           "source": "%BORGBACKUP_HOST_LOCATION%",
           "destination": "/mnt/borgbackup",
-          "writeable": true
-        },
-        {
-          "source": "nextcloud_aio_elasticsearch",
-          "destination": "/nextcloud_aio_volumes/nextcloud_aio_elasticsearch",
-          "writeable": true
+          "writeable": true,
+          "include_in_backup_and_restore": false
         },
         {
           "source": "nextcloud_aio_redis",
           "destination": "/mnt/redis",
-          "writeable": true
+          "writeable": true,
+          "include_in_backup_and_restore": false
         }
       ],
       "secrets": [
@@ -337,7 +327,8 @@
         {
           "source": "%WATCHTOWER_DOCKER_SOCKET_PATH%",
           "destination": "/var/run/docker.sock",
-          "writeable": false
+          "writeable": false,
+          "include_in_backup_and_restore": false
         }
       ]
     },
@@ -376,7 +367,8 @@
         {
           "source": "nextcloud_aio_clamav",
           "destination": "/var/lib/clamav",
-          "writeable": true
+          "writeable": true,
+          "include_in_backup_and_restore": false
         }
       ],
       "restart": "unless-stopped"
@@ -399,7 +391,8 @@
         {
           "source": "nextcloud_aio_onlyoffice",
           "destination": "/var/lib/onlyoffice",
-          "writeable": true
+          "writeable": true,
+          "include_in_backup_and_restore": false
         }
       ],
       "secrets": [
@@ -441,7 +434,8 @@
         {
           "source": "nextcloud_aio_elasticsearch",
           "destination": "/usr/share/elasticsearch/data",
-          "writeable": true
+          "writeable": true,
+          "include_in_backup_and_restore": true
         }
       ],
       "restart": "unless-stopped"

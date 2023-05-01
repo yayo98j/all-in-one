@@ -113,7 +113,7 @@
 						"items": {
 							"type": "object",
 							"additionalProperties": false,
-							"minProperties": 3,
+							"minProperties": 4,
 							"properties": {
 								"destination": {
 									"type": "string",
@@ -126,6 +126,9 @@
 									"minlength": 2
 								},
 								"writeable": {
+									"type": "boolean"
+								},
+								"include_in_backup_and_restore": {
 									"type": "boolean"
 								}
 							}
