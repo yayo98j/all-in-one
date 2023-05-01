@@ -55,6 +55,9 @@
         }
     }
 
+    # Others
+    import /mnt/data/caddy-imports/*
+
     # Nextcloud
     route {
         rewrite /.well-known/carddav /remote.php/dav

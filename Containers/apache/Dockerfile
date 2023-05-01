@@ -12,6 +12,7 @@ RUN set -ex; \
     apk del --no-cache shadow
 
 RUN mkdir -p /mnt/data; \
+    mkdir /mnt/data/caddy-imports; \
     chown www-data:www-data /mnt/data;
 
 VOLUME /mnt/data
